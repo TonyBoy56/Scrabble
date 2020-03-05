@@ -8,18 +8,22 @@ namespace Scrabble.Models
   {
     public string MyWord;
 
-    private static Dictionary<int, char[]> letters = new Dictionary<int, char[]>();
-
-    public Word(string aWord)
+    private static Dictionary<int, char[]> letterDictionary = new Dictionary<int, char[]>()
     {
-      MyWord = aWord;
-    letters.Add(1, new char[]{'a', 'e','i','o','u','l', 'n','r','s','t'});
-    letters.Add(2, new char[]{'d','g'});
-    letters.Add(3, new char[]{'b','c','m','p'});
-    letters.Add(4, new char[]{'f','h','v','w','y'});
-    letters.Add(5, new char[]{'k'});
-    letters.Add(8, new char[]{'j','x'});
-    letters.Add(10, new char[]{'q','z'});
+      {1, new char[]{'a', 'e','i','o','u','l', 'n','r','s','t'},
+      {2, new char[]{'d','g'}},
+      {3, new char[]{'b','c','m','p'}},
+      {4, new char[]{'f','h','v','w','y'}},
+      {5, new char[]{'k'}},
+      {8, new char[]{'j','x'}},
+      {10, new char[]{'q','z'}}
+    });
+
+    public in CalcWordScore(string theirWord)
+    {
+      int[] theKeys = letterDictionary.Keys.ToArray();
+      int totalScore = 0;
+      for (int i = 0; i < theirWord.Length)
     }
     
     // public static char[] BreakToArray()
@@ -29,20 +33,19 @@ namespace Scrabble.Models
     //   return inputWord;
     // }
 
-    public int ReturnValue()
-    {
-      int totalScore = 0;
-      Word inputWord = new Word("a");
-      char[] result = MyWord.ToCharArray();
-      for (int i = 0; i < result.Length; i++);
-      {
+    // public int ReturnValue()
+    // {
+    //   int totalScore = 0;
+    //   Word inputWord = new Word("a");
+    //   char[] result = MyWord.ToCharArray();
+    //   for (int i = 0; i < result.Length; i++);
+    //   {
         
-        if (letters.ContainsKey(element))
-        {
-         totalScore +=  
-        }
-      }
-      return totalScore;
-    }
-  }
+    //     if (letters.ContainsKey(element))
+    //     {
+    //      totalScore +=  
+    //     }
+    //   }
+    //   return totalScore;
+    // }
 } 
